@@ -1,0 +1,17 @@
+name: k8s-guestbook
+description: Kubernetes Guestbook (Redis leader/replica + PHP frontend) deployed in its own namespace
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  guestbook:namespace:
+    description: Namespace the whole app is deployed into
+    default: guestbook
+  guestbook:serviceType:
+    description: Frontend Service type - ClusterIP, NodePort or LoadBalancer
+    default: ClusterIP
+  guestbook:frontendReplicas:
+    description: Number of frontend replicas
+    default: 3
